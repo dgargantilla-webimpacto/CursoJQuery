@@ -23,6 +23,14 @@
 			margin-bottom: 60px;
 		}
 
+		.amarillo{
+			color: yellow;
+		}
+
+		.violeta{
+			color: violet;
+		}
+
 	</style>
 
 </head>
@@ -36,9 +44,16 @@
 
 	<div class="row">
 		
-		<div class="col-sm-4">
+		<!-- <div class="col-sm-4">
 			<img src="img/nophoto.jpg" class="img-circle">
+		</div> -->
+		
+		<div class="col-sm-4 text-center">
+			<img src="img/nophoto.jpg">
+			<h1>dGragantilla</h1>
 		</div>
+
+		
 
 		<div class="col-sm-5">
 			<p>
@@ -63,6 +78,33 @@
 
 
 
+<script>
+
+	$("img")
+	.attr("src","img/índice.png")
+	.addClass("img-circle")
+	.addClass("img-thumbnail");
+
+	//console.log($(".col-sm-5").children(p).eq(0));
+	$(".col-sm-5").find("p")
+	//.text("Saludos, soy BATMAN");
+	.html("Saludos, soy <b>BATMAN</b>");
+
+	$("ul li")
+	.eq(0).css("color","blue").end()
+	.eq(1).css("color", "red").end()
+	.eq(2).addClass("amarillo").end()
+	.eq(3).css("color","green").end()
+	.eq(4).addClass("violeta").end();
+	// $("img")
+	// .attr("src","img/profesor.jpg")
+	// .removeClass("img-circle")
+	// .addClass("img-thumbnail");
+
+	// $("img").attr("src","img/profesor.jpg");
+	// $("img").removeClass("img-circle");
+	// $("img").addClass("img-thumbnail");
+</script>
 
 
 </body>
