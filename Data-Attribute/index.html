@@ -22,17 +22,25 @@
 	<hr>
 
 	<img src="img/1.jpg" alt="jpg" data-color="rojo">
+	<br>
+	<br>
 
+	<img src="img/2.png" alt="jpg" data-color="blanco">
 
 </div>
 
 
 <script>
 	(function(){
-		var $imagen = $("img");
+		//var $imagen = $("img");
 		//console.log($imagen.attr("data-color"));
 		//$imagen.attr("alt","es un jpg");
-		console.log($imagen.data("color"));
+		//console.log($imagen.data("color"));
+
+		$("img").on("mouseenter", function(){
+			console.log($(this).data("color"));
+			console.log($(this).attr("alt"));
+		});
 	})();
 
 </script>
