@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Tarea01</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/lib/jquery-2.1.4.min.js"></script>
+	
+	<!-- Importacion del Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+
+<div class="container">
+	
+	<h1>Tarea: tabla del 3</h1>
+	<hr>
+
+	<button type="button" class="btn btn-primary">Agregar Linea</button>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Base</th>
+				<th>x</th>
+				<th>Numero</th>
+				<th>=</th>
+				<th>Resultado</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- <tr>
+				<td scope="row">3</td>
+				<td></td>
+				<td>1</td>
+				<td></td>
+				<td>3</td>
+			</tr> -->
+			<!-- <tr>
+				<td scope="row"></td>
+				<td></td>
+				<td></td>
+			</tr> -->
+		</tbody>
+	</table>
+
+</div>
+
+
+
+
+<script>
+
+	(function(){
+		var base = 3;
+		var cont = 0;
+		
+
+		$(".btn").on("click",function(){
+			cont ++;
+			var trdinamic = "<tr><td>"+ base + "</td><td>x</td><td>"+ cont + "</td><td>=</td><td>" + (base*cont) + "</td></tr>";
+			
+			 $("tbody").append(trdinamic);
+				
+		});
+	})();
+</script>
+
+
+
+
+
+</body>
+</html>
