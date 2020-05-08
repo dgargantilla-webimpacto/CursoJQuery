@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Objetos 101</title>
+	<title>Objetos 201</title>
 
 	<!-- Importacion del jQuery -->
 	<script src="js/lib/jquery-2.1.4.min.js"></script>
@@ -18,18 +18,49 @@
 
 <div class="container text-center">
 	
-	<h1>Objetos 101: <small>Comprendiendo lo básico</small></h1>
+	<h1>Objetos 201: <small>Objetos en jQuery</small></h1>
 	<hr>
 	
+	
+	  <!-- <input type="text" class="form-control" placeholder="Ingrese su nombre"> -->
+	  
+	
+
 
 
 </div>
 
 
 <script>
-	var carro = {};
-	console.log(carro);
+
+	$("<input>", {
+		type: "text",
+		class: "form-control",
+		placeholder: "ingrese su nombre"
+	})
+	.appendTo(".container")
+	.on("Keypress", function(e){
+		console.log(e.keyCode);
+	});
+
+	$("input").css({
+		position: "relative",
+		top: "400px"
+	});
+
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
