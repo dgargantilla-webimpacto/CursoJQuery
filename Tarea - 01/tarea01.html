@@ -21,6 +21,19 @@
 	<h1>Tarea: tabla del 3</h1>
 	<hr>
 
+	<select id="cmdBase" class="form-control">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3" selected>3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+	</select>
+
 	<button type="button" class="btn btn-primary">Agregar Linea</button>
 
 	<table class="table table-striped">
@@ -57,16 +70,23 @@
 <script>
 
 	(function(){
-		var base = 3;
+		
 		var cont = 0;
 		
 
 		$(".btn").on("click",function(){
 			cont ++;
+			var base = $("#cmdBase").val();
 			var trdinamic = "<tr><td>"+ base + "</td><td>x</td><td>"+ cont + "</td><td>=</td><td>" + (base*cont) + "</td></tr>";
 			
 			 $("tbody").append(trdinamic);
 				
+		});
+
+		//Funcion que detecta el cambio de base
+		$("#cmdBase").on("change",function(){
+			$("tr").not(":eq(0)").remove();
+			cont = 0;
 		});
 	})();
 </script>
