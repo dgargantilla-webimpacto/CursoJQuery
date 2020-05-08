@@ -34,16 +34,18 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<!-- <tr>
+				<td scope="row">3</td>
+				<td></td>
+				<td>1</td>
+				<td></td>
+				<td>3</td>
+			</tr> -->
+			<!-- <tr>
 				<td scope="row"></td>
 				<td></td>
 				<td></td>
-			</tr>
-			<tr>
-				<td scope="row"></td>
-				<td></td>
-				<td></td>
-			</tr>
+			</tr> -->
 		</tbody>
 	</table>
 
@@ -59,20 +61,12 @@
 		var cont = 0;
 		
 
-		$("body").on("click","h3",function(){
+		$(".btn").on("click",function(){
 			cont ++;
-			var h3dinamic = "<h3 id='" + cont + "' >Dinamico..."+ cont
-				 +"</h3><hr>";
-			//console.log("Click...");
-			 $(".container").append(h3dinamic);
-			//$(".container").prepend(h3dinamic);
-
-			if(cont == 3){
-				$("#2").bind("click", function(){
-					console.log("funcion dinamica");
-				});
-			}
+			var trdinamic = "<tr><td>"+ base + "</td><td>x</td><td>"+ cont + "</td><td>=</td><td>" + (base*cont) + "</td></tr>";
 			
+			 $("tbody").append(trdinamic);
+				
 		});
 	})();
 </script>
