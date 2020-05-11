@@ -1,0 +1,32 @@
+.slideShow{
+	/*background-color: red;*/
+	width: 600px;
+	height: 300px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.slideShow ul{
+	padding: 0;
+	list-style-type: none;
+	margin-left: 0px;
+	display: flex;
+}
+
+.slideBtns{
+	width: 600px;
+	display: flex;
+	position: relative;
+	top: -30px;
+	
+}
+
+.slideBtns .slideBtn{
+	cursor: pointer;
+	border-radius: 100%;
+	width: 15px;
+	height: 15px;
+	background-color: #a1a1a1;
+	margin-left: 5px;
+	margin-right: 3px;
+}
