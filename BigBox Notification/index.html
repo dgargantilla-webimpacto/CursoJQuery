@@ -41,7 +41,7 @@
 	<h1>BigBox: <small>Notification</small></h1>
 	<hr>
 
-
+	<button class="btn btn-primary">Mostrar BigBox</button>
 </div>
 
 
@@ -51,8 +51,17 @@
 
 
 <script>
+	$("button").on("click", function(){
+		$.bigBox({
+			fa: "fa-codiepie",
+			titulo: "Desde Boton",
+			contenido: "Este es el contenido BigBox"
+		}, function( boton){
+			console.log( boton );
+		});
+		
 
-	$.bigBox();
+	});
 </script>
 
 

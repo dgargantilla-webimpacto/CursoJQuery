@@ -1,12 +1,22 @@
 (function(){
 
-    $.bigBox = function( opciones){
+    $.bigBox = function( opciones, callback){
         opciones = $.extend({
 
+            fa: "fa-thumbs-o-up",
+		    titulo: undefined,
+		    contenido: undefined,
+            boton: "Aceptar"
         }, opciones);
-    };
-
-
+    
+        if(opciones.titulo === undefined){
+            alert("El Titulo es necesario");
+            return;
+        }
+        if(opciones.contenido === undefined){
+            alert("El contenido es necesario");
+            return;
+        }
     var contenido = "";
 
         contenido = '<div class="bigBox-Fondo"></div>';
@@ -16,12 +26,12 @@
     
     contenido += '<div class="bigBox-contenedor" align="center">';
 	contenido += '<div class="bigBox-Cerrar"> <i class="fa fa-times"></i></div>';
-	contenido += '<div class="bigBox-Circulo"><i class="fa fa-thumbs-o-up fa-3x"></i></div>';
+	contenido += '<div class="bigBox-Circulo"><i class="fa ' +opciones.fa + ' fa-3x"></i></div>';
 	contenido += '<div class="bigBox-Contenido">';
-	contenido += '<span class="bigBox-Titulo">Genial!</span>';
-	contenido += '<span class="bigBox-Texto">Estamos listos para proceder usando udemy</span>';
+	contenido += '<span class="bigBox-Titulo">'+opciones.titulo+'</span>';
+	contenido += '<span class="bigBox-Texto">'+opciones.contenido+'</span>';
 	contenido += '</div>';
-	contenido += '<button class="bigBox-Boton">Empezar curso!</button>';
+	contenido += '<button class="bigBox-Boton">'+opciones.boton+'</button>';
     contenido += '</div>';
 
 
@@ -35,11 +45,22 @@
 
 
     // Funcion del boton cerrar
-    $("body").on("click",".bigBox-Cerrar",function(){
+    $(".bigBox-Cerrar").on("click",function(){
         animarSalida();
+
+        if(typeof callback == 'function'){
+            callback('boton-cerrar');
+        }
     });
 
+     // Funcion del boton principal
+     $(".bigBox-Boton").on("click",function(){
+        animarSalida();
 
+        if(typeof callback == 'function'){
+            callback('boton-principal');
+        }
+    });
 
 
     //Animar la entrada
@@ -48,6 +69,18 @@
             
         var $bigBox = $(".bigBox-contenedor");
             //$fondo.fadeIn(300);
+
+            var anchoP = $(window).width();
+            var altoP = $(window).height();
+
+            var anchoB = $bigBox.width();
+            var altoB = $bigBox.height();
+
+            $bigBox.css({
+                top: (altoP / 2) - (altoB / 2),
+                left: (anchoP / 2) - (anchoB /2)
+            });
+
             $fondo.show();
             $bigBox.show();
         var tl = new TimelineMax();
@@ -78,4 +111,5 @@
         $fondo.remove();
         $bigBox.remove();
     }
+};
 })();
